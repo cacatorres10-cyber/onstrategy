@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLang } from '@/i18n/LanguageContext';
 import { EchoStack } from '@/components/ui/primitives';
 
@@ -158,16 +158,6 @@ export function Hero() {
           ))}
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="mx-auto mt-14 flex w-full max-w-7xl items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink/40"
-      >
-        <ArrowDown className="h-4 w-4 animate-bounce" />
-        {t.hero.scroll}
-      </motion.div>
     </section>
   );
 }

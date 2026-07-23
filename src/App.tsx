@@ -6,6 +6,7 @@ import { Intro } from '@/components/sections/Intro';
 import { Solutions } from '@/components/sections/Solutions';
 import { Intelligence } from '@/components/sections/Intelligence';
 import { Approach } from '@/components/sections/Approach';
+import { Gallery } from '@/components/sections/Gallery';
 import { Clients } from '@/components/sections/Clients';
 import { Plans } from '@/components/sections/Plans';
 import { Team } from '@/components/sections/Team';
@@ -34,13 +35,14 @@ function Page() {
     <div className="relative">
       <Navbar />
       <main>
+        <Showcase />
         <Hero />
         <Marquee />
         <Intro />
         <Solutions />
         <Intelligence />
         <Approach />
-        <Showcase />
+        <Gallery />
         <Clients />
         <Plans />
         <Team />

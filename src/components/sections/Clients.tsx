@@ -9,33 +9,27 @@ import { ThreeDPhotoCarousel } from '@/components/ui/3d-carousel';
 const px = (id: number, w = 800) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
-function industryCards(labels: string[]) {
-  const imgs = [
-    px(2886937), // agroindustria — greenhouse crops
-    px(1108101), // automatización industrial — worker + machinery
-    px(264636), // retailers — supermarket
-    px(4483610), // distribuidores — logistics warehouse
-    px(262978), // foodservice — restaurant service
-    px(2933243), // agroindustria — open field
-    px(3985062), // retailers — store aisle
-    px(3862132), // automatización industrial — factory floor
+function industryCards(ind: string[]) {
+  // [0]=agro [1]=automatización [2]=retail [3]=distribución [4]=foodservice
+  const set = [
+    { img: px(2886937), label: ind[0] }, // greenhouse crops
+    { img: px(1108101), label: ind[1] }, // worker + machinery
+    { img: px(264636), label: ind[2] }, // supermarket
+    { img: px(906494), label: ind[3] }, // shipping containers
+    { img: px(262978), label: ind[4] }, // restaurant service
+    { img: px(259280), label: ind[0] }, // green fields
+    { img: px(236705), label: ind[1] }, // factory hall
+    { img: px(3985062), label: ind[2] }, // store aisle
+    { img: px(1267338), label: ind[3] }, // forklift logistics
+    { img: px(2159065), label: ind[4] }, // café / coffee bar
+    { img: px(2933243), label: ind[0] }, // open field
+    { img: px(264507), label: ind[2] }, // retail mall
   ];
-  return imgs.map((img, i) => ({ img, label: labels[i] }));
+  return set;
 }
 
 export function Clients() {
   const { t } = useLang();
-
-  const carouselLabels = [
-    t.clients.industries[0],
-    t.clients.industries[1],
-    t.clients.industries[2],
-    t.clients.industries[3],
-    t.clients.industries[4],
-    t.clients.industries[0],
-    t.clients.industries[2],
-    t.clients.industries[1],
-  ];
 
   const logos = [...t.clients.logos, ...t.clients.logos];
 
@@ -75,7 +69,7 @@ export function Clients() {
         {/* 3D carousel */}
         <Reveal delay={0.1}>
           <div className="mt-16">
-            <ThreeDPhotoCarousel cards={industryCards(carouselLabels)} />
+            <ThreeDPhotoCarousel cards={industryCards(t.clients.industries)} />
             <p className="mt-4 text-center text-xs uppercase tracking-[0.2em] text-ink/40">
               {t.clients.industriesTitle}
             </p>

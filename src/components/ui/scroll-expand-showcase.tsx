@@ -55,9 +55,9 @@ export default function ScrollExpandShowcase({
           <img
             src={bgImageSrc}
             alt=""
-            className="h-full w-full object-cover grayscale"
+            className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-ink/40" />
+          <div className="absolute inset-0 bg-ink/35" />
         </motion.div>
 
         {/* Expanding media */}

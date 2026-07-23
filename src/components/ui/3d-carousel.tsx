@@ -130,7 +130,7 @@ const Carousel = memo(
                 <img
                   src={card.img}
                   alt={card.label ?? `slide ${i}`}
-                  className="pointer-events-none aspect-[3/4] w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                  className="pointer-events-none aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />

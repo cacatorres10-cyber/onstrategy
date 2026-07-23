@@ -42,6 +42,7 @@ type Content = {
     cards: { region: string; title: string; desc: string }[];
     note: string;
   };
+  gallery: { tag: string; title: string; subtitle: string };
   clients: {
     tag: string;
     title: string;
@@ -221,6 +222,11 @@ export const content: Record<Lang, Content> = {
         },
       ],
       note: 'Expansión global con estrategia y ejecución.',
+    },
+    gallery: {
+      tag: 'En acción',
+      title: 'Los mercados que movemos',
+      subtitle: 'De la agroindustria al foodservice, del retail a la distribución: donde hay una marca por crecer, estamos.',
     },
     clients: {
       tag: 'Trayectoria',
@@ -442,6 +448,11 @@ export const content: Record<Lang, Content> = {
         },
       ],
       note: 'Global expansion with strategy and execution.',
+    },
+    gallery: {
+      tag: 'In action',
+      title: 'The markets we move',
+      subtitle: 'From agribusiness to foodservice, from retail to distribution: wherever a brand needs to grow, we are there.',
     },
     clients: {
       tag: 'Track record',

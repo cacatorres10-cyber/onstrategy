@@ -38,7 +38,7 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
         <a href="#top" className="shrink-0">
-          <Logo />
+          <Logo variant={scrolled ? 'dark' : 'light'} />
         </a>
 
         <div className="hidden items-center gap-8 lg:flex">
@@ -46,7 +46,10 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[13px] font-medium uppercase tracking-wide text-ink/70 transition-colors duration-150 hover:text-ink"
+              className={cn(
+                'text-[13px] font-medium uppercase tracking-wide transition-colors duration-150',
+                scrolled ? 'text-ink/70 hover:text-ink' : 'text-paper/80 hover:text-white'
+              )}
             >
               {l.label}
             </a>
@@ -57,7 +60,12 @@ export function Navbar() {
           <button
             onClick={toggle}
             aria-label="Toggle language"
-            className="flex items-center gap-1.5 rounded-full border border-ink/20 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+            className={cn(
+              'flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors',
+              scrolled
+                ? 'border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper'
+                : 'border border-paper/40 text-paper hover:bg-paper hover:text-ink'
+            )}
           >
             <Globe className="h-3.5 w-3.5" />
             {lang === 'es' ? 'EN' : 'ES'}
@@ -65,13 +73,18 @@ export function Navbar() {
 
           <a
             href="#contact"
-            className="hidden rounded-full border border-ink bg-ink px-5 py-2 text-xs font-bold uppercase tracking-wide text-paper transition-all duration-200 hover:bg-transparent hover:text-ink sm:inline-block"
+            className={cn(
+              'hidden rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wide transition-all duration-200 sm:inline-block',
+              scrolled
+                ? 'border border-ink bg-ink text-paper hover:bg-transparent hover:text-ink'
+                : 'bg-gold text-ink hover:bg-paper'
+            )}
           >
             {t.nav.cta}
           </a>
 
           <button
-            className="lg:hidden"
+            className={cn('lg:hidden', scrolled ? 'text-ink' : 'text-paper')}
             aria-label="Menu"
             onClick={() => setOpen((o) => !o)}
           >
