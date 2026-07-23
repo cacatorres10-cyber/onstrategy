@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
+import { FlagToggle } from '@/components/ui/FlagToggle';
 import { useLang } from '@/i18n/LanguageContext';
 import { cn } from '@/lib/utils';
 
 export function Navbar() {
-  const { t, lang, toggle } = useLang();
+  const { t } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -57,19 +58,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <button
-            onClick={toggle}
-            aria-label="Toggle language"
-            className={cn(
-              'flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors',
-              scrolled
-                ? 'border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper'
-                : 'border border-paper/40 text-paper hover:bg-paper hover:text-ink'
-            )}
-          >
-            <Globe className="h-3.5 w-3.5" />
-            {lang === 'es' ? 'EN' : 'ES'}
-          </button>
+          <FlagToggle dark={!scrolled} />
 
           <a
             href="#contact"
